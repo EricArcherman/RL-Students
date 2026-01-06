@@ -10,4 +10,6 @@ The CSV data is used for Service Month donation tracking. Future Service Reps:
    - `source venv/bin/activate`
    - `pip install -r requirements.txt`
    - `python extract.py`
-4. The script will update `students.csv`. Use the updated student names for the donation tracking Google Form.
+4. The script will update `all_students.csv` and `sep_classes.csv`.
+   - use `all_students.csv` for the donation tracking Google Form.
+   - use `sep_classes.csv` to update individual class subtabs (on the master Google Sheet).
