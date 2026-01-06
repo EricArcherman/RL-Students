@@ -5,7 +5,7 @@
 The CSV data is used for Service Month donation tracking. Future Service Reps:
 1. Follow the tutorial in `Create Directory PDF.pdf` to create an updated RL Directory
 2. Replace the current `RL Directory.pdf` with your updated one
-3. Run `extract.py` by entering the following commands in terminal:
+3. Run the extraction script by entering the following commands in terminal:
    - `python3 -m venv venv`
    - `source venv/bin/activate`
    - `pip install -r requirements.txt`
