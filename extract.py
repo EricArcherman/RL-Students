@@ -10,7 +10,8 @@ import pdfplumber
 
 # Define the path to the PDF file
 file_path = "RL Directory.pdf"
-output_csv = "students.csv"
+sep_classes_csv = "sep_classes.csv"
+all_students_csv = "all_students.csv"
 
 # Define a function to extract student information from PDF
 def extract_students_from_pdf(file_path):
@@ -70,18 +71,25 @@ def extract_students_from_pdf(file_path):
             
             i += 1
     
-    # Sort students by graduation year, then by name
-    students.sort(key=lambda x: (x["Grad Year"], x["Student"]))
     return students
 
 # Extract students from the PDF file
 students = extract_students_from_pdf(file_path)
 
-# Write the sorted student data to a CSV file
-with open(output_csv, mode="w", newline="") as file:
+# Write sep_classes.csv (sorted by graduation year, then by name)
+students_by_class = sorted(students, key=lambda x: (x["Grad Year"], x["Student"]))
+with open(sep_classes_csv, mode="w", newline="") as file:
     writer = csv.DictWriter(file, fieldnames=["Student", "Grad Year"], extrasaction='ignore')
     writer.writeheader()
-    writer.writerows(students)
+    writer.writerows(students_by_class)
+
+# Write all_students.csv (completely alphabetized by student name)
+students_alphabetical = sorted(students, key=lambda x: x["Student"])
+with open(all_students_csv, mode="w", newline="") as file:
+    writer = csv.DictWriter(file, fieldnames=["Student", "Grad Year"], extrasaction='ignore')
+    writer.writeheader()
+    writer.writerows(students_alphabetical)
 
 print(f"Extracted {len(students)} students from {file_path}")
-print(f"Student data has been exported to {output_csv}")
+print(f"Student data has been exported to {sep_classes_csv} (sorted by class)")
+print(f"Student data has been exported to {all_students_csv} (alphabetized)")
