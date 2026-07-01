@@ -194,14 +194,14 @@ def main():
 
     # Run locations — offset labels to reduce overlap
     label_offsets = {
-        "RL Home Course": (12, -22),
-        "Arnold Arboretum": (12, 12),
-        "Cutler Park": (-110, -14),
-        "Weston Reservoir": (12, 14),
-        "Powisset Farm": (-115, -16),
-        "Blue Hills": (12, 14),
-        "Chestnut Hill Reservoir": (12, 12),
-        "Charles River (Herter Park)": (-140, 10),
+        "RL Home Course": (14, -26),
+        "Arnold Arboretum": (14, 14),
+        "Cutler Park": (-125, -16),
+        "Weston Reservoir": (14, 16),
+        "Powisset Farm": (-130, -18),
+        "Blue Hills": (14, 16),
+        "Chestnut Hill Reservoir": (14, 14),
+        "Charles River (Herter Park)": (-155, 12),
     }
     run_markers = []
     for label, address, color in RUN_LOCATIONS:
