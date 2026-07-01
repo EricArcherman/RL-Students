@@ -210,18 +210,18 @@ def main():
         lat, lon = coords[address]
         ax.scatter(
             [lon], [lat],
-            s=450, c=color, marker="*", edgecolors="white", linewidths=1.8, zorder=5
+            s=520, c=color, marker="*", edgecolors="white", linewidths=2.0, zorder=5
         )
-        ox, oy = label_offsets.get(label, (10, 10))
+        ox, oy = label_offsets.get(label, (12, 12))
         ax.annotate(
             label,
             (lon, lat),
             xytext=(ox, oy),
             textcoords="offset points",
-            fontsize=11,
+            fontsize=14,
             fontweight="bold",
             color="#1d3557",
-            bbox=dict(boxstyle="round,pad=0.35", fc="white", ec=color, alpha=0.92, lw=2),
+            bbox=dict(boxstyle="round,pad=0.45", fc="white", ec=color, alpha=0.92, lw=2),
             arrowprops=dict(arrowstyle="-", color=color, lw=1.0, shrinkA=2, shrinkB=2),
             zorder=6,
         )
@@ -240,7 +240,7 @@ def main():
 
     legend_items = [
         Patch(facecolor="#fb6a4a", alpha=0.7, label="Runner address density"),
-        plt.Line2D([0], [0], marker="o", color="w", markerfacecolor="#7f0000", markersize=9, alpha=0.5, label="Individual runner"),
+        plt.Line2D([0], [0], marker="o", color="w", markerfacecolor="#7f0000", markersize=11, alpha=0.5, label="Individual runner"),
     ] + run_markers
     if off_map:
         legend_items.append(
@@ -250,14 +250,14 @@ def main():
     ax.legend(
         handles=legend_items,
         loc="lower left",
-        fontsize=11,
+        fontsize=13,
         framealpha=0.95,
         title="Legend",
-        title_fontsize=13,
-        markerscale=1.4,
-        handlelength=1.6,
-        borderpad=0.8,
-        labelspacing=0.6,
+        title_fontsize=15,
+        markerscale=1.6,
+        handlelength=1.8,
+        borderpad=1.0,
+        labelspacing=0.7,
     )
 
     plt.tight_layout()
